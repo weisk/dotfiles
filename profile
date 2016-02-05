@@ -29,3 +29,5 @@ alias gs='git status'
 alias gl='git log'
 alias duh='du -h -d 1'
 alias subl='open -a "Sublime Text" $1'
+
+alias httpget='http get www.google.es query==param header:value body=data'
