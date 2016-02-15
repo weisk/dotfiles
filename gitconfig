@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+	user = weisk
+	email = franml87@gmail.com
+	pager = diff-so-fancy | less --tabs=1,5 -R
+[user]
+	name = weisk
+	email = franml87@gmail.com
+[push]
+	default = simple
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
