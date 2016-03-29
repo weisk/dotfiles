@@ -26,9 +26,12 @@ export GREP_OPTIONS="--color"
 alias ls='ls -G'
 alias ll='ls -Glah'
 alias gs='git status'
-alias gl='git log'
+alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 alias duh='du -h -d 1'
 alias subl='open -a "Sublime Text" $1'
 
 alias httpget='http --print=HBhb get www.google.es query==param header:value body=data'
 alias httponlyheaders='http -h get google.es'
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

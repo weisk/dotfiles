@@ -12,3 +12,4 @@
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
+  pullify = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
