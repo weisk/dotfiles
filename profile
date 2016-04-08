@@ -46,3 +46,18 @@ alias httponlyheaders='http -h get google.es'
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 # source $(brew --prefix nvm)/nvm.sh
+
+dualways() { clear; while true; do sleep 5; clear; du -h -d 1 2>/dev/null; done }
+
+foreverify() {
+  while true; do
+    sleep $2
+    eval $1
+  done
+}
+
+wrap() {
+  # $@ are all arguments
+  echo Starting: "$@"
+  eval $(printf "%q " "$@")
+}
