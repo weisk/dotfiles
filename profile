@@ -57,7 +57,6 @@ foreverify() {
 }
 
 wrap() {
-  # $@ are all arguments
   echo Starting: "$@"
   eval $(printf "%q " "$@")
 }
