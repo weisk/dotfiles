@@ -27,10 +27,12 @@ export GREP_OPTIONS="--color"
 
 alias ls='ls -G'
 alias ll='ls -Glah'
+alias resource='source ~/.profile'
 
 alias gs='git status'
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 # alias gl='git log --pretty=format:"%h - %an, %ar : %s"'
+alias justpush='git add -A && git commit -m "." && git push'
 
 alias duh='du -h -d 1 2>/dev/null'
 alias subl='open -a "Sublime Text" $1'
