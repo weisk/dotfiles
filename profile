@@ -13,6 +13,8 @@ if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_c
   source "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [ -f /etc/bash_completion ]; then
   source /etc/bash_completion;
+elif [ -f /usr/local/etc/bash_completion ]; then
+  source /usr/local/etc/bash_completion;
 fi;
 
 # Erase duplicates in history
@@ -28,6 +30,7 @@ export GREP_OPTIONS="--color"
 alias ls='ls -G'
 alias ll='ls -Glah'
 alias resource='source ~/.profile'
+alias evalhosts='sudo -s -- /Users/FrancescMallafre/scripts/evalhosts'
 
 alias gs='git status'
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
