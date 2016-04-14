@@ -49,8 +49,11 @@ alias httponlyheaders='http -h get google.es'
 # alias httponlyheaders='curl -x GET -I google.es'
 
 export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# source $(brew --prefix nvm)/nvm.sh
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  "$NVM_DIR/nvm.sh"
+elif which brew > /dev/null && [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
+  source $(brew --prefix nvm)/nvm.sh
+fi;
 
 dualways() { clear; while true; do sleep 5; clear; du -h -d 1 2>/dev/null; done }
 
