@@ -27,8 +27,8 @@ shopt -s histappend
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 
-alias ls='ls -G'
-alias ll='ls -Glah'
+alias ls='ls -G --color'
+alias ll='ls -Glah --color'
 alias resource='source ~/.profile'
 alias evalhosts='sudo -s -- /Users/FrancescMallafre/scripts/evalhosts'
 
@@ -50,7 +50,7 @@ alias httponlyheaders='http -h get google.es'
 
 export NVM_DIR=~/.nvm
 if [ -s "$NVM_DIR/nvm.sh" ]; then
-  "$NVM_DIR/nvm.sh"
+  source "$NVM_DIR/nvm.sh"
 elif which brew > /dev/null && [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   source $(brew --prefix nvm)/nvm.sh
 fi;
