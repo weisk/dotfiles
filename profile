@@ -68,3 +68,5 @@ wrap() {
   echo Starting: "$@"
   eval $(printf "%q " "$@")
 }
+
+alias serve='python -m SimpleHTTPServer $1'
