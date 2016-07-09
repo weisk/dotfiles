@@ -70,3 +70,5 @@ wrap() {
 }
 
 alias serve='python -m SimpleHTTPServer $1'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
