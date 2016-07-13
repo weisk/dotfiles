@@ -9,7 +9,14 @@
 	email = franml87@gmail.com
 [push]
 	default = simple
+[color]
+  ui = true
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
   pullify = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
+  pushup = ![[ $(git config "branch.$(git symbolic-ref --short HEAD).merge") = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
+  lg = "log --pretty=format:'%C(yellow)%h%C(reset) %s \
+    %C(cyan)%cr%C(reset) %C(blue)%an%C(reset) %C(green)%d%C(reset)' --graph"
+  wdiff = diff --word-diff=color --ignore-space-at-eol \
+    --word-diff-regex='[[:alnum:]]+|[^[:space:][:alnum:]]+'
