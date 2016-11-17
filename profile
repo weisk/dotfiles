@@ -1,4 +1,6 @@
 export PATH=$PATH:/usr/local/sbin/
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 if [ -f ~/.git-completion ]; then
   source ~/.git-completion
@@ -9,8 +11,8 @@ if [ -f ~/.ps1 ]; then
 fi
 
 # Add tab completion for many Bash commands
-if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-  source "$(brew --prefix)/share/bash-completion/bash_completion";
+if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+  source "$(brew --prefix)/etc/bash_completion";
 elif [ -f /etc/bash_completion ]; then
   source /etc/bash_completion;
 elif [ -f /usr/local/etc/bash_completion ]; then
@@ -33,7 +35,8 @@ export HISTSIZE=10000
 # Append to the history file when exiting instead of overwriting it
 shopt -s histappend
 
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+#export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+export LSCOLORS="exfxcxdxbxegedabagacad"
 export GREP_OPTIONS="--color"
 
 alias ls='ls -G --color'
@@ -58,7 +61,9 @@ alias httponlyheaders='http -h get google.es'
 # alias httponlyheaders='curl -x GET -I google.es'
 
 
-dualways() { clear; while true; do sleep 5; clear; du -h -d 1 2>/dev/null; done }
+
+dualways() { clear; while true; do sleep 2; clear; du -h -d 1 2>/dev/null; done }
+dfalways() { clear; while true; do sleep 2; clear; df -h 2>/dev/null; done }
 
 foreverify() {
   while true; do
