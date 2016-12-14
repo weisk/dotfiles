@@ -46,16 +46,13 @@ alias evalhosts='sudo -s -- /Users/FrancescMallafre/scripts/evalhosts'
 
 alias gs='git status'
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
-# alias gl='git log --pretty=format:"%h - %an, %ar : %s"'
+#alias gl='git log --pretty=format:"%h - %an, %ar : %s"'
 alias justpush='git add -A && git commit -m "." && git push'
-
 alias duh='du -h -d 1 2>/dev/null'
 alias subl='open -a "Sublime Text" $1'
-
 alias dc='docker-compose'
 alias dm='docker-machine'
 alias evaldm='eval $(docker-machine env default)'
-
 alias httpget='http --print=HBhb get www.google.es query==param header:value body=data'
 alias httponlyheaders='http -h get google.es'
 # alias httponlyheaders='curl -x GET -I google.es'
@@ -77,7 +74,12 @@ wrap() {
   eval $(printf "%q " "$@")
 }
 
+listdeleted() {
+  git diff-tree --no-commit-id -r $1 | grep D | cut -d' ' -f5
+}
+
 alias serve='python -m SimpleHTTPServer $1'
 
 # example use: cat /path/to/file | cclip
 alias cclip='xclip -selection clipboard'
+

@@ -4,7 +4,8 @@
 ":set t_Co=256
 ":color grb256
 
-set mouse=a
+"set mouse=a
+:set mouse=v
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
