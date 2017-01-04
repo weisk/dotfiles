@@ -20,3 +20,5 @@
     %C(cyan)%cr%C(reset) %C(blue)%an%C(reset) %C(green)%d%C(reset)' --graph"
   wdiff = diff --word-diff=color --ignore-space-at-eol \
     --word-diff-regex='[[:alnum:]]+|[^[:space:][:alnum:]]+'
+  pushpr = "!f() { git push origin master;git commit --allow-empty -m 'push to execute post-receive';git push origin master; }; f"
+
