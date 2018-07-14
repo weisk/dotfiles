@@ -63,7 +63,13 @@ alias evaldm='eval $(docker-machine env default)'
 alias httpget='http --print=HBhb get www.google.es query==param header:value body=data'
 alias httponlyheaders='http -h get google.es'
 # alias httponlyheaders='curl -x GET -I google.es'
+alias grep='grep -n --color'
+alias serve='python -m SimpleHTTPServer $1'
 
+# example use: cat /path/to/file | cclip
+alias cclip='xclip -selection clipboard'
+
+alias gitdiffbinstat='/bin/bash ~/scripts/gitdiffbinstat.sh $1'
 
 dualways() { clear; while true; do sleep 2; clear; du -h -d 1 2>/dev/null; done }
 dfalways() { clear; while true; do sleep 2; clear; df -h 2>/dev/null; done }
@@ -83,13 +89,6 @@ wrap() {
 listdeleted() {
   git diff-tree --no-commit-id -r $1 | grep D | cut -d' ' -f5
 }
-
-alias serve='python -m SimpleHTTPServer $1'
-
-# example use: cat /path/to/file | cclip
-alias cclip='xclip -selection clipboard'
-
-alias gitdiffbinstat='/bin/bash ~/scripts/gitdiffbinstat.sh $1'
 
 o() { xdg-open "$@" & }
 
