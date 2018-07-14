@@ -19,6 +19,7 @@ elif [ -f /usr/local/etc/bash_completion ]; then
   source /usr/local/etc/bash_completion;
 fi;
 
+# Add NVM
 export NVM_DIR=~/.nvm
 if [ -s "$NVM_DIR/nvm.sh" ]; then
   source "$NVM_DIR/nvm.sh"
@@ -26,7 +27,13 @@ elif which brew > /dev/null && [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   source $(brew --prefix nvm)/nvm.sh
 fi;
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Add RVM to PATH
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add PYENV to PATH
+#export PATH="/home/fran/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # Erase duplicates in history
 export HISTCONTROL=erasedups
@@ -49,7 +56,7 @@ alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 #alias gl='git log --pretty=format:"%h - %an, %ar : %s"'
 alias justpush='git add -A && git commit -m "." && git push'
 alias duh='du -h -d 1 2>/dev/null'
-alias subl='open -a "Sublime Text" $1'
+# alias subl='open -a "Sublime Text" $1'
 alias dc='docker-compose'
 alias dm='docker-machine'
 alias evaldm='eval $(docker-machine env default)'
@@ -83,3 +90,4 @@ alias serve='python -m SimpleHTTPServer $1'
 # example use: cat /path/to/file | cclip
 alias cclip='xclip -selection clipboard'
 
+alias gitdiffbinstat='/bin/bash ~/scripts/gitdiffbinstat.sh $1'
