@@ -62,8 +62,6 @@ alias httpget='http --print=HBhb get www.google.es query==param header:value bod
 alias httponlyheaders='http -h get google.es'
 # alias httponlyheaders='curl -x GET -I google.es'
 
-
-
 dualways() { clear; while true; do sleep 2; clear; du -h -d 1 2>/dev/null; done }
 dfalways() { clear; while true; do sleep 2; clear; df -h 2>/dev/null; done }
 
@@ -88,3 +86,4 @@ alias serve='python -m SimpleHTTPServer $1'
 # example use: cat /path/to/file | cclip
 alias cclip='xclip -selection clipboard'
 
+alias diff='colordiff $1 $2'
