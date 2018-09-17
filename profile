@@ -37,7 +37,12 @@ shopt -s histappend
 
 #export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export LSCOLORS="exfxcxdxbxegedabagacad"
-export GREP_OPTIONS="--color"
+
+# Move export GREP_OPTIONS="--color=auto" (which is deprecated) from .exports to .alias
+# Always enable colored `grep` output`
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
 alias ls='ls -G --color'
 alias ll='ls -Glah --color'

@@ -22,3 +22,14 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set nowrap                " don't wrap text
 
+" Case insensitive.
+" If you search for something containing uppercase characters, it will do a case sensitive search;
+" if you search for something purely lowercase, it will do a case insensitive search.
+" You can use \c and \C to override this:
+"
+:set ignorecase
+:set smartcase
+" /copyright      " Case insensitive
+" /Copyright      " Case sensitive
+" /copyright\C    " Case sensitive
+" /Copyright\c    " Case insensitive
