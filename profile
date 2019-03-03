@@ -1,5 +1,7 @@
 export PATH=$PATH:/usr/local/sbin/
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 if [ -f ~/.git-completion ]; then
@@ -57,6 +59,7 @@ alias duh='du -h -d 1 2>/dev/null'
 alias subl='open -a "Sublime Text" $1'
 alias dc='docker-compose'
 alias dm='docker-machine'
+alias drmall='docker stop $(docker ps -a -q) && docker rm -f $(docker ps -a -q) && docker rmi -f $(docker images -q) && docker volume rm $(docker volume ls -q)'
 alias evaldm='eval $(docker-machine env default)'
 alias httpget='http --print=HBhb get www.google.es query==param header:value body=data'
 alias httponlyheaders='http -h get google.es'
@@ -81,9 +84,27 @@ listdeleted() {
   git diff-tree --no-commit-id -r $1 | grep D | cut -d' ' -f5
 }
 
-alias serve='python -m SimpleHTTPServer $1'
+# alias serve='python -m SimpleHTTPServer $1'
 
 # example use: cat /path/to/file | cclip
 alias cclip='xclip -selection clipboard'
 
 alias diff='colordiff $1 $2'
+
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+
+# ps ax | grep 'node --inspect' | head -n 1 | awk '{print }' | xargs kill -9
+
+# monitor all HTTP traffic
+# https://unix.stackexchange.com/questions/19485/how-to-monitor-incoming-http-requests/19496
+# tcpdump -s 0 -a 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
+# Initialization for FDK command line tools.Mon Nov 26 18:11:13 2018
+FDK_EXE="/home/fran/bin/FDK/Tools/linux"
+PATH=${PATH}:"/home/fran/bin/FDK/Tools/linux"
+export PATH
+export FDK_EXE
+
+alias lsf='find -maxdepth 1 -type f -exec sh -c "ls -la {} | \
+  tr '"'\n'"' '"'\t'"'; file -b {} | \
+  cut -d, -f1" \;'
